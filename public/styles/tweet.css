@@ -1,0 +1,67 @@
+section section {
+  padding-top: 1.5em;
+}
+
+article.tweet {
+  opacity: 0.5;
+  border: 5px solid;
+  border-color: inherit;
+  margin: 2em 1em;
+}
+
+article.tweet:hover {
+  opacity: 1;
+  box-shadow: 5px 10px #888;
+}
+
+article div.tweet-body {
+  margin-left: 1em;
+  margin-right: 1em;
+  border-bottom: solid;
+}
+
+article div.tweet-body p {
+  margin-left: .5em;
+}
+
+article header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: unset;
+  color: inherit;
+  background-color: inherit;
+  margin-top: unset;
+}
+
+article header div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 160px;
+  margin: 1em;
+}
+
+article header span {
+  padding: 2em;
+  color: rgb(167, 167, 167);
+}
+
+article footer {
+  font-family: inherit;
+  font-size: .7em;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-top: .5em;
+}
+
+article footer {
+  margin: .5em 3em;
+}
+
+article footer p {
+  margin-top: 0;
+}
