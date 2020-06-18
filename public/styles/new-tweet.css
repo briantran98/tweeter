@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 #error-message {
   display: flex;
   justify-content: center;

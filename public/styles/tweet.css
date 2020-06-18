@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 section section {
   padding-top: 1.5em;
 }

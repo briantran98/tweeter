@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 header {
   background-color: #d8981f;
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
