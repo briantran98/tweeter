@@ -15,12 +15,12 @@ html {
  */
 
 body {
-  font-family: 'Source Sans Pro', sans-serif;
   display: flex;
   flex-direction: column;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 24px;
   color: #545149;
   background-color: #f4f1ec;
-  font-size: 24px;
 }
 
 /*
@@ -31,4 +31,13 @@ body {
    align-self: center;
    width: 90%;
    
+ }
+ @media (min-width: 1024px) {
+   body {
+     flex-direction: row;
+   }
+
+   main {
+     margin: 13vh 3vw auto;
+   }
  }

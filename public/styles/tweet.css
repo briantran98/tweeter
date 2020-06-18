@@ -6,30 +6,30 @@ section section {
   padding-top: 1.5em;
 }
 
-article.tweet {
+.tweet {
   opacity: 0.5;
   border: 5px solid;
   border-color: inherit;
   margin: 2em 1em;
 }
 
-article.tweet:hover {
+.tweet:hover {
   opacity: 1;
   box-shadow: 5px 10px #888;
 }
 
 
-article div.tweet-body {
+.tweet div.tweet-body {
   margin-left: 1em;
   margin-right: 1em;
   border-bottom: solid;
 }
 
-article div.tweet-body p {
+.tweet div.tweet-body p {
   margin-left: .5em;
 }
 
-article header {
+.tweet header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -40,12 +40,12 @@ article header {
   margin-top: unset;
 }
 
-article header span {
+.tweet header span {
   padding: 2em;
   color: rgb(167, 167, 167);
 }
 
-article header div {
+.tweet header div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -53,11 +53,11 @@ article header div {
   margin: 1em;
 }
 
-article header div p {
+.tweet header div p {
   margin: .5em;
 }
 
-article footer {
+.tweet footer {
   font-family: inherit;
   font-size: .7em;
   display: flex;
@@ -67,6 +67,12 @@ article footer {
 }
 
 
-article footer p {
+.tweet footer p {
   margin-top: 0;
+}
+
+@media (min-width: 1024px) {
+  .tweet {
+    margin: 2em 0;
+  }
 }

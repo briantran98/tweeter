@@ -1,19 +1,32 @@
 * {
   box-sizing: border-box;
 }
-
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2vh;
+}
 header {
   background-color: #d8981f;
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
   height: 400px;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   color: white;
-  margin-top: 5em;
+  margin-top: 120px;
+}
+.username {
+  font-size: 30px;
 }
 
-.username {
-  margin: 0px;
+
+
+@media (min-width: 1024px) {
+  header.user-info {
+    height: 40vh;
+    width: 33vw;
+    max-width: 415px;
+    min-height: 360px;
+    margin: 20vh 8vw auto 3vw;
+  }
 }
