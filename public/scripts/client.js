@@ -5,6 +5,12 @@
  */
 
 $(document).ready(function () {
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   const createTweetElement = (tweet) => {
     const { user, content } = tweet;
     const $tweet = $(
@@ -17,7 +23,7 @@ $(document).ready(function () {
           <span>${user.handle}</span>
         </header>
         <div class='tweet-body'>
-          <p>${content.text}</p>
+          <p>${escape(content.text)}</p>
         </div>
         <footer>
           <p>10 days</p>
@@ -52,13 +58,16 @@ $(document).ready(function () {
   $("form").on("submit", function (event) {
     event.preventDefault();
     const data = $(this).serialize();
-    const input = data.replace(/\s/g,'').split("=")[1];
-    console.log(input);
+    const input = data.replace(/%20/g, "").split("=")[1];
     if (!input || input.length > 140) {
-      alert("Invalid Tweet");
+      $("#form").prepend($(`<div id="error-message">
+      <p>Invalid tweet! Please stay within the 140 char limit</p>
+    </div>`));
     } else {
       $.post("/tweets", data).then(function (cool) {
         loadTweets();
+        $("#tweet-text").val("");
+        $("#tweet-text").focus();
       });
     }
   });

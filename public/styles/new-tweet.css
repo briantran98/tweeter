@@ -1,3 +1,12 @@
+#error-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: red;
+  height: 2em;
+  border-radius: .3em;
+}
 
 form footer {
   padding-top: .5em;
@@ -12,6 +21,10 @@ button {
   color: white;
 }
 
+button:hover {
+  box-shadow: 0 0 .5em cadetblue;
+}
+
 textarea {
  display: flex;
  border-top-style: unset;
@@ -19,12 +32,11 @@ textarea {
  border-bottom-style: solid;
  border-left-style: unset;
  background-color: inherit;
- margin: 0px 1.79688px 0px 0px;
  width: 100%;
- height: 45px;
+ padding: 1em 0 0 0;
  resize: none;
- border-width: 5px;
- font-size: 75%;
+ border-width: .4em;
+ font-size: .7em;
 }
 
 textarea:focus {
