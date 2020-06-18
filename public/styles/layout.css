@@ -30,6 +30,7 @@ body {
  main {
    align-self: center;
    width: 90%;
+   margin-top: 450px;
    
  }
  @media (min-width: 1024px) {
