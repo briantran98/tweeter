@@ -8,10 +8,10 @@ $(document).ready(function () {
   const createTweetElement = (tweet) => {
     const { user, content } = tweet;
     const $tweet = $(
-      `<article class="tweet">
+      `<article class='tweet'>
         <header>
           <div>
-            <img src="${user.avatars}">
+            <img src='${user.avatars}'>
             <p>${user.name}</p>
           </div>
           <span>${user.handle}</span>
@@ -32,23 +32,34 @@ $(document).ready(function () {
     return $tweet;
   };
 
-  // Test / driver code (temporary). Eventually will get this from the server.
-  const tweetData = {
-    user: {
-      name: "Newton",
-      avatars: "https://i.imgur.com/73hZDYK.png",
-      handle: "@SirIsaac",
-    },
-    content: {
-      text:
-        "If I have seen further it is by standing on the shoulders of giants",
-    },
-    created_at: 1461116232227,
+  // Loops through the array of data and appends it to the tweets container
+  const renderTweets = (tweets) => {
+    for (const tweet of tweets) {
+      const $tweet = createTweetElement(tweet);
+      $("#tweets-container").prepend($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+    }
   };
 
-  const $tweet = createTweetElement(tweetData);
+  const loadTweets = () => {
+    $.getJSON("/tweets").then(function (data) {
+      $("#tweets-container").empty();
+      renderTweets(data);
+    });
+  };
 
-  // Test / driver code (temporary)
-  console.log($tweet.val()); // to see what it looks like
-  $("#tweets-container").append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+  loadTweets();
+
+  $("form").on("submit", function (event) {
+    event.preventDefault();
+    const data = $(this).serialize();
+    const input = data.replace(/\s/g,'').split("=")[1];
+    console.log(input);
+    if (!input || input.length > 140) {
+      alert("Invalid Tweet");
+    } else {
+      $.post("/tweets", data).then(function (cool) {
+        loadTweets();
+      });
+    }
+  });
 });
