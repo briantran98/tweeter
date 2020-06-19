@@ -20,7 +20,18 @@ header.user-info {
 .username {
   font-size: 30px;
 }
+i {
+  color: red;
+}
+#new-tweet-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+#new-tweet-link:hover {
+
+}
 
 
 @media (min-width: 1024px) {

@@ -23,6 +23,11 @@ nav {
   font-size: 1.5em;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
 @media (min-width: 1024px) {
   nav {
     z-index: 3;
