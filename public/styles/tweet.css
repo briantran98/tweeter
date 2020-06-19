@@ -63,12 +63,14 @@ section section {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  margin: .5em 3em;
+  margin: .5em 2em;
 }
-
 
 .tweet footer p {
   margin-top: 0;
+}
+.button {
+  color: rgb(64,86,160);
 }
 
 @media (min-width: 1024px) {
