@@ -44,10 +44,11 @@ $(document).ready(function () {
   const renderTweets = (tweets) => {
     for (const tweet of tweets) {
       const $tweet = createTweetElement(tweet);
-      $("#tweets-container").prepend($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+      $("#tweets-container").prepend($tweet);
     }
   };
 
+  // Calls renderTweets and then loads them onto the DOM
   const loadTweets = () => {
     $.getJSON("/tweets").then(function (data) {
       $("#tweets-container").empty();
@@ -55,6 +56,7 @@ $(document).ready(function () {
     });
   };
 
+  // Calculate the time between posting and current time
   const calculateDays = (date) => {
     const currentDate = Date.now()
     const oneDay = 1000 * 60 * 60 * 24
@@ -67,7 +69,6 @@ $(document).ready(function () {
     minute = minute % 60;
     day = Math.floor(hour / 24);
     hour = hour % 24;
-    console.log(day);
     if (day > 0) {
       return `${day} Days`
     }
@@ -90,7 +91,7 @@ $(document).ready(function () {
       <p>Invalid tweet! Please stay within the 140 char limit</p>
     </div>`));
     } else {
-      $.post("/tweets", data).then(function (cool) {
+      $.post("/tweets", data).then(function () {
         loadTweets();
         $("#tweet-text").val("");
         $("#tweet-text").focus();
@@ -98,13 +99,10 @@ $(document).ready(function () {
     }
   });
 
-  function scrollToAnchor(aid) {
+  $("#new-tweet-link a").click(function() {
+    $("#tweet-text").focus();
     $('html,body').animate({
       scrollTop: 0
     }, 'slow');
-  }
-
-  $("#new-tweet-link a").click(function() {
-    scrollToAnchor('tweet-text');
   });
 });
