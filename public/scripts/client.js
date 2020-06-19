@@ -59,7 +59,6 @@ $(document).ready(function () {
   // Calculate the time between posting and current time
   const calculateDays = (date) => {
     const currentDate = Date.now()
-    const oneDay = 1000 * 60 * 60 * 24
     const elapsedTime = (currentDate - date)
     let day, hour, minute, seconds;
     seconds = Math.floor(elapsedTime / 1000);
@@ -82,6 +81,8 @@ $(document).ready(function () {
 
   loadTweets();
 
+  // Listeners
+  // Submit button click to make new tweet
   $("form").on("submit", function (event) {
     event.preventDefault();
     const data = $(this).serialize();
@@ -99,6 +100,7 @@ $(document).ready(function () {
     }
   });
 
+  // Scroll animation to text area
   $("#new-tweet-link a").click(function() {
     $("#tweet-text").focus();
     $('html,body').animate({

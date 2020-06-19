@@ -23,7 +23,7 @@ nav {
   font-size: 1.5em;
 }
 
-a {
+#tweet-navigator {
   text-decoration: none;
   color: white;
 }

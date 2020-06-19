@@ -1,5 +1,5 @@
+// Keeps a count on how many characters have been inputted and makes sure it doesn't go over 140
 $(document).ready(function() {
-  // --- our code goes here ---
   $('#tweet-text').keyup(function() {
     const textLength = $(this).val().length
     const charLimit = 140;
