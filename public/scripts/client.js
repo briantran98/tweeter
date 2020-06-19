@@ -13,7 +13,7 @@ $(document).ready(function () {
 
   const createTweetElement = (tweet) => {
     const { user, content, created_at } = tweet;
-    const elapsedDays = calculateDays(created_at)
+    const elapsedDays = calculateDays(created_at);
     const safeText = escape(content.text);
     const $tweet = $(
       `<article class='tweet'>
@@ -58,8 +58,8 @@ $(document).ready(function () {
 
   // Calculate the time between posting and current time
   const calculateDays = (date) => {
-    const currentDate = Date.now()
-    const elapsedTime = (currentDate - date)
+    const currentDate = Date.now();
+    const elapsedTime = currentDate - date;
     let day, hour, minute, seconds;
     seconds = Math.floor(elapsedTime / 1000);
     minute = Math.floor(seconds / 60);
@@ -69,15 +69,15 @@ $(document).ready(function () {
     day = Math.floor(hour / 24);
     hour = hour % 24;
     if (day > 0) {
-      return `${day} Days`
+      return `${day} Days`;
     }
     if (hour > 0) {
-      return `${hour} Hours`
+      return `${hour} Hours`;
     }
     if (minute >= 0) {
-      return `${minute} Minutes`
+      return `${minute} Minutes`;
     }
-  }
+  };
 
   loadTweets();
 
@@ -88,9 +88,11 @@ $(document).ready(function () {
     const data = $(this).serialize();
     const input = data.replace(/%20/g, "").split("=")[1];
     if (!input || input.length > 140) {
-      $("#form").prepend($(`<div id="error-message">
+      $("#form").prepend(
+        $(`<div id="error-message">
       <p>Invalid tweet! Please stay within the 140 char limit</p>
-    </div>`));
+    </div>`)
+      );
     } else {
       $.post("/tweets", data).then(function () {
         loadTweets();
@@ -101,10 +103,19 @@ $(document).ready(function () {
   });
 
   // Scroll animation to text area
-  $("#new-tweet-link a").click(function() {
-    $("#tweet-text").focus();
-    $('html,body').animate({
-      scrollTop: 0
-    }, 'slow');
+  $("#new-tweet-link").click(function () {
+    $("html,body").animate({ scrollTop: 0 }, 800, null, () => {
+      $("#tweet-text").focus();
+    });
+  });
+
+  $(document).scroll(() => {
+    if ($(window).scrollTop() > 150) {
+      $("#new-tweet-link").show("slow", function () {
+        $(this).css("display", "flex");
+      });
+    } else {
+      $("#new-tweet-link").hide("slow");
+    }
   });
 });

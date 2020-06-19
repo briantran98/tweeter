@@ -24,12 +24,6 @@ i {
   color: red;
   margin: 10px;
 }
-#new-tweet-link {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 
 @media (min-width: 1024px) {
   header.user-info {
